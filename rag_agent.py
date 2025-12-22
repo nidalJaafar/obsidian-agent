@@ -47,10 +47,35 @@ def retrieve_context(query: str):
 
     return serialized, retrieved_docs
 
+@tool(response_format="content_and_artifact")
+def write_to_vault(file_name: str, content: str):
+    """Write content to a specified file in the vault. File name should include spaces if needed and end with .md"""
+    full_path = os.path.join(vault_path, "AI Generated", file_name)
+    os.makedirs(os.path.dirname(full_path), exist_ok=True)
+    full_note = ""
 
-tools = [retrieve_context]
+    with open(full_path, "w", encoding="utf-8") as f:
+        full_note = f"""
+
+Tags: [[AI Generated]]
+
+#🌱
+
+---
+
+{content}
+
+---
+
+        """.strip()
+        f.write(full_note)
+
+    return f"Content written to {full_path}", full_note
+
+
+tools = [retrieve_context, write_to_vault]
 prompt = (
-    "You have access to a tool that retrieves context from a personal vault. "
-    "Use the tool to help answer user queries."
+    "You have access to a tool that retrieves context from a personal vault, and a tool that writes notes to the vault. "
+    "Use the retrieve_context tool to help answer user queries, and the write_to_vault tool to create new notes as needed. "
 )
 agent = create_agent(model, tools, system_prompt=prompt)
