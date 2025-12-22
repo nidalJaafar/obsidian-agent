@@ -1,0 +1,8 @@
+.env
+config.json
+.venv/
+__pycache__/
+*.pyc
+chroma-data/
+.ipynb_checkpoints/
+.idea/

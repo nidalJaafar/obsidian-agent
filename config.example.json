@@ -1,0 +1,6 @@
+{
+  "vault_path": "/path/to/your/vault",
+  "chroma_persist_dir": "./chroma-data",
+  "embedding_model": "models/gemini-embedding-001",
+  "chat_model": "google_genai:gemini-3-pro-preview"
+}
