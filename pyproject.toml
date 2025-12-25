@@ -15,4 +15,13 @@ dependencies = [
     "prompt-toolkit>=3.0.52",
     "pylatexenc>=2.10",
     "python-dotenv>=1.1.0",
+    "redis>=5.0.0",
+    "psycopg[binary]>=3.2.1",
 ]
+
+[project.scripts]
+chat = "cli.chat:main"
+build_index = "cli.build_index:main"
+
+[tool.uv]
+package = true

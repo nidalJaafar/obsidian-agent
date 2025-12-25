@@ -6,3 +6,5 @@ __pycache__/
 chroma-data/
 .ipynb_checkpoints/
 .idea/
+*db
+*egg-info/

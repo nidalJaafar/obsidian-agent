@@ -1,7 +1,7 @@
 from langchain_chroma import Chroma
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
-from config import get_setting, load_env
+from core.config import get_setting, load_env
 
 
 def get_vector_store(persist_directory: str | None = None):

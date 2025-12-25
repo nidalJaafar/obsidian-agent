@@ -2,5 +2,14 @@
   "vault_path": "/path/to/your/vault",
   "chroma_persist_dir": "./chroma-data",
   "embedding_model": "models/gemini-embedding-001",
-  "chat_model": "google_genai:gemini-3-pro-preview"
+  "chat_model": "google_genai:gemini-3-pro-preview",
+  "history_max_messages": 30,
+  "session_store": "memory",
+  "redis_host": "localhost",
+  "redis_port": 6379,
+  "redis_db": 0,
+  "redis_prefix": "rag:session:",
+  "history_store": "sqlite",
+  "sqlite_path": "./chat_history.db",
+  "postgres_dsn": "postgresql://user:password@localhost:5432/rag"
 }

@@ -10,7 +10,7 @@ _SETTINGS = None
 
 
 def load_env() -> None:
-    repo_root = Path(__file__).resolve().parent
+    repo_root = Path(__file__).resolve().parents[2]
     env_path = repo_root / ".env"
     if env_path.exists():
         load_dotenv(env_path)
@@ -22,7 +22,7 @@ def _resolve_config_path() -> Path:
     raw_path = os.getenv("RAG_CONFIG_PATH", "config.json")
     path = Path(raw_path).expanduser()
     if not path.is_absolute():
-        path = (Path(__file__).resolve().parent / path).resolve()
+        path = (Path(__file__).resolve().parents[2] / path).resolve()
     return path
 
 
